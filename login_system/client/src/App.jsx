@@ -1,9 +1,11 @@
 import './index.css'
 import Signup from './components/Signup';
+import Signin from './components/Signin';
 
 const App = () => {
-  return <div className="flex text-center text-blue-400">
-    App
+  return <div>
+    <Signup />
+    <Signin />
   </div>
 }
 
