@@ -22,7 +22,7 @@ class Node {
     }
 }
 
-const head = new Node(10);
+let head = new Node(10);
 
 head.next = new Node(20);
 head.next.next = new Node(30);
@@ -34,7 +34,7 @@ head.next.next.next = new Node(40);
 //     i = i.next;
 // }
 
-// noraml iterator 
+// noraml iterator
 // const traverserLinkedList = (head) => {
 //     let temp = head;
 //     console.log(head);
@@ -44,7 +44,64 @@ head.next.next.next = new Node(40);
 //         temp = temp.next;
 //     }
 // }
-// recursive 
+// recursive
+// const traverserLinkedList = (head) => {
+//     if (head == null) {
+//         console.log();
+//         return;
+//     }
+//     console.log(head.data);
+//     head = head.next;
+//     traverserLinkedList(head)
+// }
+// traverserLinkedList(head);
+
+// insertion at start 
+let firstNode = new Node(500);
+firstNode.next = head;
+
+// insert at last 
+let lastNode = new Node(1000);
+const insertAtLast = (lastNode, head) => {
+    if (head == null) {
+        return lastNode;
+    }
+
+    let current = head;
+
+    while (current.next != null) {
+        current = current.next;
+    }
+
+    current.next = lastNode;
+
+    return head;
+};
+const insertAtPos = (node, pos, head) => {
+    if (pos === 0) {
+        node.next = head;
+        head = node;
+        return head;
+    }
+
+    let current = head;
+    let index = 0;
+
+    while (current != null) {
+        if (index === pos - 1) {
+            node.next = current.next;
+            current.next = node;
+            return head;
+        }
+
+        current = current.next;
+        index++;
+    }
+
+    return head;
+};
+head = insertAtLast(lastNode, head);
+head = insertAtPos(new Node(45), 2, head);
 const traverserLinkedList = (head) => {
     if (head == null) {
         console.log();
