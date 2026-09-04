@@ -1,8 +1,8 @@
 import React from 'react'
-
+import AddExpense from "./components/AddExpense.jsx";
 const App = () => {
   return (
-    <div className='text-center text-blue-400'>App</div>
+    <AddExpense />
   )
 }
 
